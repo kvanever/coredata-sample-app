@@ -13,31 +13,14 @@ class ToDoListController: UITableViewController, NSFetchedResultsControllerDeleg
     
     let managedObjectContext = DataController.sharedInstance.managedObjectContext
     
-    lazy var fetchRequest: NSFetchRequest = {
-       let request = NSFetchRequest(entityName: Item.identifier)
-        let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
-        
-        request.sortDescriptors = [sortDescriptor]
-        
-        return request
-    }()
-    
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-       let controller = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        controller.delegate = self
+    lazy var fetchedResultsController: ToDoFetchedResultsController = {
+       let controller = ToDoFetchedResultsController(managedObjectContext: self.managedObjectContext, withTableView: self.tableView)
         
         return controller
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        do {
-            try self.fetchedResultsController.performFetch()
-        } catch let error as NSError {
-            print("Error fetching item objects: \(error.localizedDescription), \(error.userInfo)")
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,9 +53,4 @@ class ToDoListController: UITableViewController, NSFetchedResultsControllerDeleg
         return cell
     }
     
-    // MARK: NSFetchedResultsControllerDelegate
-    
-    func  controllerDidChangeContent(controller: NSFetchedResultsController) {
-        tableView.reloadData()
-    }
-}
+ }
