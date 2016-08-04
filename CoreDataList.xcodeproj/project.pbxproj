@@ -15,6 +15,8 @@
 		CD3C6B161D53CD5F006C0432 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C6B151D53CD5F006C0432 /* CoreDataStack.swift */; };
 		CD3C6B191D53DDFE006C0432 /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD3C6B171D53DDFE006C0432 /* ToDoList.xcdatamodeld */; };
 		CD3C6B1B1D53E000006C0432 /* ToDoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C6B1A1D53E000006C0432 /* ToDoListController.swift */; };
+		CD65CDC11D53E4B20044682B /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD65CDBF1D53E4B20044682B /* Item+CoreDataProperties.swift */; };
+		CD65CDC21D53E4B20044682B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD65CDC01D53E4B20044682B /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		CD3C6B151D53CD5F006C0432 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CD3C6B181D53DDFE006C0432 /* ToDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoList.xcdatamodel; sourceTree = "<group>"; };
 		CD3C6B1A1D53E000006C0432 /* ToDoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoListController.swift; path = ../ToDoListController.swift; sourceTree = "<group>"; };
+		CD65CDBF1D53E4B20044682B /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "../Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD65CDC01D53E4B20044682B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		CD3C6B021D53CD4C006C0432 /* CoreDataList */ = {
 			isa = PBXGroup;
 			children = (
+				CD65CDBF1D53E4B20044682B /* Item+CoreDataProperties.swift */,
+				CD65CDC01D53E4B20044682B /* Item.swift */,
 				CD3C6B1A1D53E000006C0432 /* ToDoListController.swift */,
 				CD3C6B031D53CD4C006C0432 /* AppDelegate.swift */,
 				CD3C6B051D53CD4C006C0432 /* ViewController.swift */,
@@ -144,9 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD65CDC11D53E4B20044682B /* Item+CoreDataProperties.swift in Sources */,
 				CD3C6B1B1D53E000006C0432 /* ToDoListController.swift in Sources */,
 				CD3C6B161D53CD5F006C0432 /* CoreDataStack.swift in Sources */,
 				CD3C6B061D53CD4C006C0432 /* ViewController.swift in Sources */,
+				CD65CDC21D53E4B20044682B /* Item.swift in Sources */,
 				CD3C6B041D53CD4C006C0432 /* AppDelegate.swift in Sources */,
 				CD3C6B191D53DDFE006C0432 /* ToDoList.xcdatamodeld in Sources */,
 			);
