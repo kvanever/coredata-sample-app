@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class DataController: NSObject {
+public class DataController: NSObject {
     
     private lazy var applicationDocumentsDirectory: NSURL = {
         
