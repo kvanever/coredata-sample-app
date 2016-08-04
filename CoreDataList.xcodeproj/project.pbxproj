@@ -19,6 +19,7 @@
 		CD65CDC21D53E4B20044682B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD65CDC01D53E4B20044682B /* Item.swift */; };
 		CDFA0F1C1D53F3DF00EB016E /* ToDoFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA0F1B1D53F3DF00EB016E /* ToDoFetchedResultsController.swift */; };
 		CDFA0F1E1D53F87F00EB016E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA0F1D1D53F87F00EB016E /* DetailViewController.swift */; };
+		CDFA0F201D53FF3100EB016E /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA0F1F1D53FF3100EB016E /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CD65CDC01D53E4B20044682B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../Item.swift; sourceTree = "<group>"; };
 		CDFA0F1B1D53F3DF00EB016E /* ToDoFetchedResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoFetchedResultsController.swift; sourceTree = "<group>"; };
 		CDFA0F1D1D53F87F00EB016E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CDFA0F1F1D53FF3100EB016E /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				CD3C6B171D53DDFE006C0432 /* ToDoList.xcdatamodeld */,
 				CDFA0F1B1D53F3DF00EB016E /* ToDoFetchedResultsController.swift */,
 				CDFA0F1D1D53F87F00EB016E /* DetailViewController.swift */,
+				CDFA0F1F1D53FF3100EB016E /* DataSource.swift */,
 			);
 			path = CoreDataList;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				CDFA0F1C1D53F3DF00EB016E /* ToDoFetchedResultsController.swift in Sources */,
 				CD65CDC21D53E4B20044682B /* Item.swift in Sources */,
 				CD3C6B041D53CD4C006C0432 /* AppDelegate.swift in Sources */,
+				CDFA0F201D53FF3100EB016E /* DataSource.swift in Sources */,
 				CD3C6B191D53DDFE006C0432 /* ToDoList.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
