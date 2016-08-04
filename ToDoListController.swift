@@ -9,13 +9,7 @@
 import UIKit
 import CoreData
 
-class ToDoListController: UITableViewController {
-    
-    var items: [Item] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+class ToDoListController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     let managedObjectContext = DataController.sharedInstance.managedObjectContext
     
@@ -27,12 +21,20 @@ class ToDoListController: UITableViewController {
         
         return request
     }()
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+       let controller = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        controller.delegate = self
+        
+        return controller
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         do {
-            items = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Item]
+            try self.fetchedResultsController.performFetch()
         } catch let error as NSError {
             print("Error fetching item objects: \(error.localizedDescription), \(error.userInfo)")
         }
@@ -46,22 +48,31 @@ class ToDoListController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        guard let section = fetchedResultsController.sections?[section] else { return 0 }
+        
+        return section.numberOfObjects
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ToDoCell", forIndexPath: indexPath)
-
-        cell.textLabel?.text = items[indexPath.row].text
         
+        return configureCell(cell, atIndexPath: indexPath)
+    }
+    
+    private func configureCell(cell: UITableViewCell, atIndexPath indexpath: NSIndexPath) -> UITableViewCell {
+        let item = fetchedResultsController.objectAtIndexPath(indexpath) as! Item
+        cell.textLabel?.text = item.text
         return cell
     }
     
-
-
+    // MARK: NSFetchedResultsControllerDelegate
+    
+    func  controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.reloadData()
+    }
 }
