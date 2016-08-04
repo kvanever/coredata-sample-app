@@ -44,7 +44,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancel" destination="RhU-Y7-gzH" id="XyI-Ml-dCp"/>
                         <outlet property="textField" destination="Cxx-re-SqJ" id="8Xn-sm-XUv"/>
                     </connections>
                 </viewController>
