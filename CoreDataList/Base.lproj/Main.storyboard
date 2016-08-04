@@ -68,6 +68,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ntN-h2-bE4" kind="show" identifier="showDetail" id="zdx-i3-avs"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -86,6 +89,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QUw-Ti-ASv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="680" y="358"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="xtC-gr-Y7G">
+            <objects>
+                <viewController id="ntN-h2-bE4" customClass="DetailViewController" customModule="CoreDataList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nif-b8-pwH"/>
+                        <viewControllerLayoutGuide type="bottom" id="3FH-Ne-hbX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zd2-QJ-mwA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZC-ka-5My">
+                                <rect key="frame" x="28" y="285" width="544" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icx-QH-598">
+                                <rect key="frame" x="0.0" y="544" width="600" height="56"/>
+                                <color key="backgroundColor" red="1" green="0.048895521480379456" blue="0.16472493371154395" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="8hE-uW-uYc"/>
+                                </constraints>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="update:" destination="ntN-h2-bE4" eventType="touchUpInside" id="PFA-mc-fH1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JZC-ka-5My" firstAttribute="centerY" secondItem="Zd2-QJ-mwA" secondAttribute="centerY" id="41k-6u-ZgP"/>
+                            <constraint firstAttribute="trailing" secondItem="icx-QH-598" secondAttribute="trailing" id="OWd-ug-nRW"/>
+                            <constraint firstItem="3FH-Ne-hbX" firstAttribute="top" secondItem="icx-QH-598" secondAttribute="bottom" id="REI-yL-weL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JZC-ka-5My" secondAttribute="trailing" constant="8" id="Wzj-sQ-BWl"/>
+                            <constraint firstItem="icx-QH-598" firstAttribute="leading" secondItem="Zd2-QJ-mwA" secondAttribute="leading" id="Z9y-3B-brn"/>
+                            <constraint firstItem="JZC-ka-5My" firstAttribute="leading" secondItem="Zd2-QJ-mwA" secondAttribute="leadingMargin" constant="8" id="t2P-bc-uMF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="JZC-ka-5My" id="E9C-cg-ryJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ldU-Hf-GmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="680" y="1262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vWq-IQ-Beh">

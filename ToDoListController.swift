@@ -27,6 +27,17 @@ class ToDoListController: UITableViewController, NSFetchedResultsControllerDeleg
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Navgiation 
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            guard let destinationController = segue.destinationViewController as? DetailViewController, indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            let item = fetchedResultsController.objectAtIndexPath(indexPath) as! Item
+            destinationController.item = item
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -53,4 +64,18 @@ class ToDoListController: UITableViewController, NSFetchedResultsControllerDeleg
         return cell
     }
     
- }
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let item = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+        
+        managedObjectContext.deleteObject(item)
+        DataController.sharedInstance.saveContext()
+    }
+    
+    // MARK: - UITableViewDelegate
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return .Delete
+    }
+
+}
