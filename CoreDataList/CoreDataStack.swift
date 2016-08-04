@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class DataController: NSObject {
     
@@ -15,4 +16,10 @@ class DataController: NSObject {
        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.endIndex.predecessor()]
     }()
+    
+    lazy var managedObjectModel: NSManagedObjectModel = {
+       let modelURL = NSBundle.mainBundle().URLForResource("ToDoList", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOfURL: modelURL)!
+    }()
+
 }
