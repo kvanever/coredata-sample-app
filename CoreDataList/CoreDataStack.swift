@@ -9,7 +9,11 @@
 import Foundation
 import CoreData
 
-class DataController: NSObject {
+public class DataController: NSObject {
+    
+    static let sharedInstance = DataController()
+    
+    private override init() {}
     
     private lazy var applicationDocumentsDirectory: NSURL = {
         
@@ -52,4 +56,41 @@ class DataController: NSObject {
         return managedObjectContext
     }()
     
+    public func saveContext() {
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+            } catch let error as NSError {
+                print("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
