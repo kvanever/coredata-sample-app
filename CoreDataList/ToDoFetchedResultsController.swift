@@ -31,8 +31,26 @@ class ToDoFetchedResultsController: NSFetchedResultsController, NSFetchedResults
         }
     }
     
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
     func  controllerDidChangeContent(controller: NSFetchedResultsController) {
-        tableView.reloadData()
+        tableView.endUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            guard let indexPath = newIndexPath else { return }
+            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        case .Delete:
+            guard let indexPath = indexPath else { return }
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        case .Update, .Move:
+            guard let indexPath = indexPath else { return }
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
     }
 
 }
